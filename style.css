@@ -1,0 +1,140 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+}
+
+.container {
+    /* Layout: textos a la izquierda, imagen a la derecha */
+    max-width: 980px;
+    margin: 80px auto;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    background: linear-gradient(90deg,#ff4d4d 0%, #ff1a1a 100%);
+    color: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(255,0,0,0.25);
+}
+
+.element {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    background: rgba(255,255,255,0.95);
+    color: #111;
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    margin: 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 220ms ease, color 220ms ease, transform 220ms ease, opacity 220ms ease;
+    opacity: 1;
+}
+
+.item:hover {
+    background: #ff1a1a;
+    color: #fff;
+    cursor: pointer;
+    transform: translateY(-3px);
+}
+
+/* Clases para animar la entrada/salida de texto desde JS */
+.item.fade-out {
+    opacity: 0;
+    transform: translateY(8px);
+}
+.item.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.img {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+.img img {
+    width: 320px;
+    max-width: 100%;
+    border-radius: 8px;
+    transition: transform 220ms ease, box-shadow 220ms ease, border 220ms ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.img img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+/* Responsive: tablet and mobile adjustments */
+@media (max-width: 900px) {
+    /* Mantener imagen a la derecha: usar fila con wrap para pantallas medianas */
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 18px;
+    }
+
+    /* Textos ocupan más ancho que la imagen pero permiten que se ajusten */
+    .element {
+        width: 60%;
+        gap: 10px;
+    }
+
+    .img {
+        width: 35%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .img img {
+        width: 260px;
+        max-width: 100%;
+    }
+
+    .item {
+        font-size: 1.1rem;
+        min-height: 44px;
+        padding: 10px 12px;
+    }
+
+    /* Si la pantalla es muy estrecha, allow wrap to stack naturally; second media query handles <480px */
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 18px;
+    }
+
+    .container {
+        margin: 32px 12px;
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .img img {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .item {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
