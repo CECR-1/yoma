@@ -126,15 +126,41 @@ body {
         margin: 32px 12px;
         padding: 12px;
         border-radius: 10px;
+        /* apilar en columna y centrar contenido en móviles */
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .img {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 8px;
     }
 
     .img img {
-        width: 100%;
+        width: 90%;
         max-width: 360px;
+        height: auto;
+        display: block;
+    }
+
+    /* Centrar .element en móviles y limitar el ancho de cada item */
+    .element {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* centra horizontalmente los items */
+        gap: 10px;
     }
 
     .item {
         font-size: 1rem;
         padding: 10px;
+        width: 100%;
+        max-width: 420px; /* evita que las tarjetas ocupen todo el ancho */
+        box-sizing: border-box;
     }
 }
